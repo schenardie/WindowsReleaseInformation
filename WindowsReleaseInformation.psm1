@@ -23,15 +23,14 @@ Param()
 Process {
     # Locate all the public and private function specific files
     $PublicFunctions = Get-ChildItem -Path (Join-Path -Path $PSScriptRoot -ChildPath "Public") -Filter "*.ps1" -ErrorAction SilentlyContinue
-    $PrivateFunctions = Get-ChildItem -Path (Join-Path -Path $PSScriptRoot -ChildPath "Private") -Filter "*.ps1" -ErrorAction SilentlyContinue
 
     # Dot source the function files
-    foreach ($FunctionFile in @($PublicFunctions + $PrivateFunctions)) {
+    foreach ($Function in $PublicFunctions) {
         try {
-            . $FunctionFile.FullName -ErrorAction Stop
+            . $Function.FullName -ErrorAction Stop
         }
         catch [System.Exception] {
-            Write-Error -Message "Failed to import function '$($FunctionFile.FullName)' with error: $($_.Exception.Message)"
+            Write-Error -Message "Failed to import function '$($Function.FullName)' with error: $($_.Exception.Message)"
         }
     }
 
