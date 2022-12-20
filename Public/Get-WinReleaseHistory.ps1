@@ -90,7 +90,7 @@ Function Get-WinReleaseHistory {
 
       if ($Build) { Return $data2 | Where-Object { $_."Os Build" -like "*$Build*" } | ConvertTo-Json }
       if ($KB) { Return $data2 | Where-Object { $_."KB article" -like "*$KB*" } | ConvertTo-Json }
-      if ($ServiceOption) { Return $data2 | Where-Object { $_."Servicing option" -like "*$ServicingOption*" } | ConvertTo-Json }
+      if ($ServicingOption) { Return $data2 | Where-Object { $_."Servicing option" -like "*$ServicingOption*" } | ConvertTo-Json }
       if ($Version) { Return $data2 | Where-Object { $_."Version" -like "*$Version*" } | ConvertTo-Json }
       else { Return $data2 | ConvertTo-Json } 
 
@@ -131,7 +131,7 @@ Function Get-WinReleaseHistory {
 
       if ($Build) { Return $data2 | Where-Object { $_."Os Build" -like "*$Build*" } | ConvertTo-Json }
       if ($KB) { Return $data2 | Where-Object { $_."KB article" -like "*$KB*" } | ConvertTo-Json }
-      if ($ServiceOption) { Return $data2 | Where-Object { $_."Servicing option" -like "*$ServicingOption*" } | ConvertTo-Json }
+      if ($ServicingOption) { Return $data2 | Where-Object { $_."Servicing option" -like "*$ServicingOption*" } | ConvertTo-Json }
       if ($Version) { Return $data2 | Where-Object { $_."Version" -like "*$Version*" } | ConvertTo-Json }
       else { Return $data2 | ConvertTo-Json } 
 
