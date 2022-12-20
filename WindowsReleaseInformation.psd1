@@ -32,7 +32,7 @@ Copyright = '(c) 2022 intune.tech All rights reserved.'
 Description = 'Parse Windows Release Information from Microsoft official page'
 
 # Minimum version of the Windows PowerShell engine required by this module
-PowerShellVersion = '5.0'
+PowerShellVersion = '5.1'
 
 # Name of the Windows PowerShell host required by this module
 # PowerShellHostName = ''
