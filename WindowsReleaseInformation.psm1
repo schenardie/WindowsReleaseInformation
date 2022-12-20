@@ -1,13 +1,9 @@
 ﻿<#
  .Synopsis
-Module used to query Windows Release Information for Windows 10 and 11 (https://learn.microsoft.com/en-us/windows/release-health/release-information)
+Module used to query Windows release information for Windows 10 and 11
 
  .Description
- Will parse the tables Windows Release Information pages and return a json with the information requested.
-
- .Example
-   # Get Release information for Windows 10 with build 22h2
-   Get-WindowsReleaseInformation -OS windows10 -Version 22h2
+ Will parse the tables Windows release information pages and return a json with the information requested.
 
  .NOTES
         Author:      Jose Schenardie
@@ -15,7 +11,8 @@ Module used to query Windows Release Information for Windows 10 and 11 (https://
         Created:     13/12/2022
         Updated:     13/12/2022
         Version history:
-        1.0.0 - (13/12/2022) Module Creation
+        1.0.0 - (13/12/2022) Module creation
+        1.0.2 - (20/12/2022) Minor adjustments
 
 #>
 [CmdletBinding()]
