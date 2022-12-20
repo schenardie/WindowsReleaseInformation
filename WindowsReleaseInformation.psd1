@@ -11,7 +11,7 @@
 RootModule = 'WindowsReleaseInformation.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.0'
+ModuleVersion = '1.0.1'
 
 # Supported PSEditions
 CompatiblePSEditions = @('Desktop', 'Core')
@@ -29,7 +29,7 @@ CompanyName = 'Intune Tech'
 Copyright = '(c) 2022 intune.tech All rights reserved.'
 
 # Description of the functionality provided by this module
-Description = 'Parse Windows Release Information from Microsoft official page'
+Description = 'Parse Windows release information from the Microsoft official release information page'
 
 # Minimum version of the Windows PowerShell engine required by this module
 PowerShellVersion = '5.1'
@@ -68,16 +68,16 @@ RequiredModules = @("PowerHTML")
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = '*'
+FunctionsToExport = @('Get-WinReleaseCurrent','Get-WinReleaseHistory')
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
-CmdletsToExport = @()
+#CmdletsToExport = @()
 
 # Variables to export from this module
-VariablesToExport = '*'
+#VariablesToExport = '*'
 
 # Aliases to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no aliases to export.
-AliasesToExport = '*'
+#AliasesToExport = '*'
 
 # DSC resources to export from this module
 # DscResourcesToExport = @()
