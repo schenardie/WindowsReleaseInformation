@@ -35,4 +35,3 @@ try {
     Write-Error "Publishing failed: $_"
     exit 1
 }
-``
