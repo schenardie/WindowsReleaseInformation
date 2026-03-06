@@ -153,8 +153,8 @@ Function Get-WinReleaseHistory {
           if ($precedingSiblings) {
             # Walk backwards through preceding elements to find version
             for ($j = $precedingSiblings.Count - 1; $j -ge 0; $j--) {
-              $siblingText = $precedingSiblings[$j].InnerText
-              if ($siblingText -match "Version\s+(\d{2}H\d)") {
+              $siblingText = $precedingSiblings[$j].InnerText.Trim()
+              if ($siblingText -match "^Version\s+(\d{2}H\d)") {
                 $ver = $matches[1]
                 $lastFoundVersion = $ver
                 break
