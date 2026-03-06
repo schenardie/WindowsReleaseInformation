@@ -50,7 +50,7 @@ PowerShellVersion = '5.1'
 # ProcessorArchitecture = ''
 
 # Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @("install")
+RequiredModules = @("PowerHTML")
 
 # Assemblies that must be loaded prior to importing this module
 # RequiredAssemblies = @()
