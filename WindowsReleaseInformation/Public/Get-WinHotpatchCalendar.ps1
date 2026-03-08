@@ -43,7 +43,7 @@ Function Get-WinHotpatchCalendar {
   )
 
   $url = 'https://learn.microsoft.com/en-us/windows/release-health/windows11-release-information'
-  $WebResponse = Invoke-WebRequest $url
+  $WebResponse = Invoke-WebRequest $url -UseBasicParsing
   $req = ConvertFrom-Html -Content $WebResponse
 
   # Select only tables that appear after the hotpatch calendar heading

@@ -141,6 +141,9 @@ Install-Module WindowsReleaseInformation
 
 ## Changelog
 
+### 1.2.1
+- **Fix:** Added `-UseBasicParsing` to all `Invoke-WebRequest` calls for compatibility with environments where the Internet Explorer engine is unavailable (e.g. PowerShell Core, Windows Server Core, non-Windows systems).
+
 ### 1.2.0
 - **New:** Added `Get-WinHotpatchCalendar` function to parse the Windows 11 hotpatch calendar section, returning scheduled and released Hotpatch and Baseline updates with Version, Calendar Year, Month, Type, Availability date, OS build, and KB article.
 - **Fix:** Resolved a bug in `Get-WinReleaseHistory` where Windows 11 23H2 builds were incorrectly labelled as 22H2. A note paragraph in the 23H2 section referenced "version 22H2", which was being matched before the actual version heading.

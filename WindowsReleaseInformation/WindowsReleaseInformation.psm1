@@ -16,6 +16,7 @@ Module used to query Windows release information for Windows 10 and 11
         1.1.1 - Major revamp of Get-WinReleaseHistory to improve parsing and add Windows 11 support
         1.1.2 - Added filtering to exclude hotpatch entries by default in Get-WinReleaseHistory and added Type parameter to allow filtering by Baseline or Hotpatch entries
         1.2.0 - Added Get-WinHotpatchCalendar function to parse the Windows 11 hotpatch calendar section
+        1.2.1 - Added -UseBasicParsing to all Invoke-WebRequest calls for compatibility with environments without IE engine
 
 #>
 [CmdletBinding()]

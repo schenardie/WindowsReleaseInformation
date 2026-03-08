@@ -53,7 +53,7 @@ Function Get-WinReleaseHistory {
   Switch ($os) {
     "10" {
       $url = 'https://docs.microsoft.com/en-us/windows/release-health/release-information'
-      $WebResponse = Invoke-WebRequest $url
+      $WebResponse = Invoke-WebRequest $url -UseBasicParsing
       $req = ConvertFrom-Html -Content $WebResponse
 
       $tables = $req.SelectNodes('//table') | Select-Object -skip 2
@@ -109,7 +109,7 @@ Function Get-WinReleaseHistory {
     }
     "11" {
       $url = 'https://docs.microsoft.com/en-us/windows/release-health/windows11-release-information'
-      $WebResponse = Invoke-WebRequest $url
+      $WebResponse = Invoke-WebRequest $url -UseBasicParsing
       $req = ConvertFrom-Html -Content $WebResponse
 
       $tables = $req.SelectNodes('//table') | Select-Object -skip 2
