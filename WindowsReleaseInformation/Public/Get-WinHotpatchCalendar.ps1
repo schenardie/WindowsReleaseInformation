@@ -62,18 +62,17 @@ Function Get-WinHotpatchCalendar {
     $ver = "Unknown"
     $calYear = "Unknown"
 
-    # Walk backwards through preceding siblings to find the nearest version and calendar year headings.
-    # Anchor the version regex (^) to avoid matching version references inside note paragraphs.
-    # "Calendar year" is distinctive enough not to require anchoring.
-    $precedingSiblings = $table.SelectNodes('preceding-sibling::*')
-    if ($precedingSiblings) {
-      for ($j = $precedingSiblings.Count - 1; $j -ge 0; $j--) {
-        $siblingText = $precedingSiblings[$j].InnerText.Trim()
+    # Walk backwards through preceding headings to find the nearest version and calendar year.
+    # The calendar tables can be nested differently from their version headings.
+    $precedingHeadings = $table.SelectNodes('preceding::*[self::h2 or self::h3 or self::h4 or self::h5 or self::h6]')
+    if ($precedingHeadings) {
+      for ($j = $precedingHeadings.Count - 1; $j -ge 0; $j--) {
+        $siblingText = $precedingHeadings[$j].InnerText.Trim()
 
         if ($calYear -eq "Unknown" -and $siblingText -match "Calendar\s+year\s+(\d{4})") {
           $calYear = $matches[1]
         }
-        if ($ver -eq "Unknown" -and $siblingText -match "^Version\s+(\d{2}H\d)") {
+        if ($ver -eq "Unknown" -and $siblingText -match "(?:Windows\s+11,\s*)?Version\s+(\d{2}H\d)") {
           $ver = $matches[1]
         }
 
