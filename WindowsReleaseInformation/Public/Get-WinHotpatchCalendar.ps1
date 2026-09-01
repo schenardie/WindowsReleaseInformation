@@ -62,12 +62,12 @@ Function Get-WinHotpatchCalendar {
     $ver = "Unknown"
     $calYear = "Unknown"
 
-    # Walk backwards through preceding headings to find the nearest version and calendar year.
-    # The calendar tables can be nested differently from their version headings.
-    $precedingHeadings = $table.SelectNodes('preceding::*[self::h2 or self::h3 or self::h4 or self::h5 or self::h6]')
-    if ($precedingHeadings) {
-      for ($j = $precedingHeadings.Count - 1; $j -ge 0; $j--) {
-        $siblingText = $precedingHeadings[$j].InnerText.Trim()
+    # Walk backwards through headings and bold labels to find the nearest version and calendar year.
+    # The Microsoft Learn page renders the current labels in bold rather than heading elements.
+    $precedingLabels = $table.SelectNodes('preceding::*[self::h2 or self::h3 or self::h4 or self::h5 or self::h6 or self::strong or self::b]')
+    if ($precedingLabels) {
+      for ($j = $precedingLabels.Count - 1; $j -ge 0; $j--) {
+        $siblingText = $precedingLabels[$j].InnerText.Trim()
 
         if ($calYear -eq "Unknown" -and $siblingText -match "Calendar\s+year\s+(\d{4})") {
           $calYear = $matches[1]
