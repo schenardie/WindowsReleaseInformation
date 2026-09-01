@@ -141,6 +141,9 @@ Install-Module WindowsReleaseInformation
 
 ## Changelog
 
+### 1.2.2
+- **Fix:** Corrected `Get-WinHotpatchCalendar` version and calendar-year detection when Microsoft Learn renders the labels in an informational note instead of heading elements.
+
 ### 1.2.1
 - **Fix:** Added `-UseBasicParsing` to all `Invoke-WebRequest` calls for compatibility with environments where the Internet Explorer engine is unavailable (e.g. PowerShell Core, Windows Server Core, non-Windows systems).
 
