@@ -105,6 +105,13 @@ Function Get-WinHotpatchCalendar {
     }
   }
 
+  if ($Month -match '^\d{1,2}$') {
+    $monthNumber = [int]$Month
+    if ($monthNumber -ge 1 -and $monthNumber -le 12) {
+      $Month = ([System.Globalization.CultureInfo]::InvariantCulture.DateTimeFormat.GetMonthName($monthNumber))
+    }
+  }
+
   if ($Version) { $data2 = $data2 | Where-Object { $_."Version"       -like "*$Version*" } }
   if ($Year)    { $data2 = $data2 | Where-Object { $_."Calendar Year"  -like "*$Year*"    } }
   if ($Month)   { $data2 = $data2 | Where-Object { $_."Month"          -like "*$Month*"   } }
