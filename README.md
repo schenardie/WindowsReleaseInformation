@@ -104,7 +104,7 @@ Install-Module WindowsReleaseInformation
 |------------|-----------|-------------|
 | `-Version` | No | Filter by Windows 11 version (e.g. `24H2`, `25H2`) |
 | `-Year`    | No | Filter by calendar year (e.g. `2025`, `2026`) |
-| `-Month`   | No | Filter by month name (e.g. `January`, `February`) |
+| `-Month`   | No | Filter by month name or number (e.g. `January`, `February`, `8`, `08`) |
 | `-Type`    | No | Filter by update type (`Hotpatch` or `Baseline`) |
 
 **.EXAMPLE**
@@ -134,12 +134,20 @@ Install-Module WindowsReleaseInformation
 
 **.EXAMPLE**
 
+    # Return August hotpatch calendar entries using a numeric month
+    Get-WinHotpatchCalendar -Month 8
+
+**.EXAMPLE**
+
     # Return the 25H2 hotpatch calendar for 2025
     Get-WinHotpatchCalendar -Version 25H2 -Year 2025
 
 ---
 
 ## Changelog
+
+### 1.2.3
+- **Fix:** Added numeric month support to `Get-WinHotpatchCalendar -Month`, allowing values like `8` or `08` to match `August`.
 
 ### 1.2.2
 - **Fix:** Corrected `Get-WinHotpatchCalendar` version and calendar-year detection when Microsoft Learn renders the labels in an informational note instead of heading elements.
